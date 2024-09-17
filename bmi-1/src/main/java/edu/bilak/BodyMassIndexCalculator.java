@@ -8,10 +8,6 @@ package edu.bilak;
  * @since 17/09/2024 — 11.44
  **/
 public class BodyMassIndexCalculator {
-    private static final double UNDERWEIGHT_THRESHOLD = 18.5;
-    private static final double NORMAL_THRESHOLD = 25.0;
-    private static final double OVERWEIGHT_THRESHOLD = 30.0;
-
     private BodyMassIndexCalculator() {}
 
     private static double getBmi(double weightInKilograms, double heightInMeters) {
@@ -26,14 +22,7 @@ public class BodyMassIndexCalculator {
 
     public static String getBmiCategory(double weightInKilograms, double heightInMeters) {
         double bmi = getBmi(weightInKilograms, heightInMeters);
-        if (bmi < UNDERWEIGHT_THRESHOLD) {
-            return "Underweight";
-        } else if (bmi < NORMAL_THRESHOLD) {
-            return "Normal";
-        } else if (bmi < OVERWEIGHT_THRESHOLD) {
-            return "Overweight";
-        } else {
-            return "Obese";
-        }
+        BmiCategory category = BmiCategory.fromBmi(bmi);
+        return category.getDescription();
     }
 }
