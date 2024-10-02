@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
  * @version 1.0.0
  * @project thesaurus-234
  * @class TextAnalyzer
- * @since 02/10/2024 — 18.51
+ * @since 01/10/2024 — 18.51
  **/
 public class TextAnalyzer {
     private static final String NON_ALPHABETIC_REGEX = "[^A-Za-z]";
@@ -32,6 +32,7 @@ public class TextAnalyzer {
     private static String[] getUniqueWords(String[] textWords) {
         String uniqueWordsAsString = "";
         String wordRegex;
+        Arrays.sort(textWords);
 
         for (String textWord : textWords) {
             wordRegex = WORD_BOUNDARY_BEFORE + Pattern.quote(textWord) + WORD_BOUNDARY_AFTER;
