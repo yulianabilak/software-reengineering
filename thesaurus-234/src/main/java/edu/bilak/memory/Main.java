@@ -1,5 +1,7 @@
 package edu.bilak.memory;
 
+import edu.bilak.common.Word;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.file.Files;

@@ -1,5 +1,7 @@
 package edu.bilak.memory;
 
+import edu.bilak.common.Word;
+
 import java.util.Map;
 import java.util.List;
 import java.util.ArrayList;
