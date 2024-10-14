@@ -23,7 +23,7 @@ public class Main {
         long startTime = System.nanoTime();
 
         int topWordsCount = 30;
-        Path filePath = Paths.get("src/main/java/edu/bilak/harry.txt");
+        Path filePath = Paths.get("src/main/resources/harry.txt");
 
         Map<String, Integer> wordFrequencies = new HashMap<>();
 

@@ -23,7 +23,7 @@ public class Original {
 
         LocalDateTime start = LocalDateTime.now();
         // Path path = Paths.get()
-        String content = new String(Files.readAllBytes(Paths.get("src/main/java/edu/bilak/harry.txt")));
+        String content = new String(Files.readAllBytes(Paths.get("src/main/resources/harry.txt")));
 
         content = content.replaceAll("[^A-Za-z ]"," ").toLowerCase(Locale.ROOT);
 

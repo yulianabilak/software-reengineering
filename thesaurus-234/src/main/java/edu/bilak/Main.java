@@ -17,7 +17,7 @@ public class Main {
         long startTime = System.nanoTime();
 
         int topWordsCount = 30;
-        Path filePath = Paths.get("src/main/java/edu/bilak/harry.txt");
+        Path filePath = Paths.get("src/main/resources/harry.txt");
 
         String text = new String(Files.readAllBytes(filePath));
         String[] mostFrequentWords = TextAnalyzer.getMostFrequentWords(text, topWordsCount);
