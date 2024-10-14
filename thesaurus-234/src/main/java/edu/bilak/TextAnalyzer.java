@@ -45,6 +45,10 @@ public class TextAnalyzer {
     }
 
     public static String[] getMostFrequentWords(String text, int count) {
+        if (count <= 0) {
+            throw new IllegalArgumentException("Count must be a positive integer.");
+        }
+
         String[] textWords = getAllWords(text);
         if (textWords.length == 0) {
             return new String[0];

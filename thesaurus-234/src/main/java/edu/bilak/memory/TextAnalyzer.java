@@ -41,6 +41,10 @@ public class TextAnalyzer {
     }
 
     public static List<Word> getMostFrequentWords(Map<String, Integer> wordFrequencies, int count) {
+        if (count <= 0) {
+            throw new IllegalArgumentException("Count must be a positive integer.");
+        }
+
         List<Word> words = new ArrayList<>();
 
         for (Map.Entry<String, Integer> entry : wordFrequencies.entrySet()) {
