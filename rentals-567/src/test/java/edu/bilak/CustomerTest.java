@@ -1,10 +1,10 @@
 package edu.bilak;
 
-import edu.bilak.original.Customer;
-import edu.bilak.original.Rental;
+import edu.bilak.refactored.Customer;
+import edu.bilak.refactored.Rental;
 import org.junit.jupiter.api.Test;
 
-import edu.bilak.original.Movie;
+import edu.bilak.refactored.Movie;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
