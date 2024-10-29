@@ -3,6 +3,7 @@ package edu.bilak;
 import edu.bilak.polymorphism.Customer;
 import edu.bilak.polymorphism.Rental;
 import edu.bilak.polymorphism.price.ChildrenPrice;
+import edu.bilak.polymorphism.price.HorrorPrice;
 import edu.bilak.polymorphism.price.NewReleasePrice;
 import edu.bilak.polymorphism.price.RegularPrice;
 import org.junit.jupiter.api.Test;
@@ -23,6 +24,7 @@ public class CustomerTest {
     private static final Movie REGULAR_MOVIE = new Movie("Regular Movie", new RegularPrice());
     private static final Movie NEW_RELEASE_MOVIE = new Movie("New Release Movie", new NewReleasePrice());
     private static final Movie CHILDRENS_MOVIE = new Movie("Children Movie", new ChildrenPrice());
+    private static final Movie HORROR_MOVIE = new Movie("Horror Movie", new HorrorPrice());
 
     @Test
     public void whenNoRentals_thenReturnZeroAmountAndPoints() {
@@ -165,5 +167,33 @@ public class CustomerTest {
             You earned 2 frequent renter points""";
 
         assertEquals(expected, customer.statement());
+    }
+
+    @Test
+    void whenRentingHorrorMovieForThreeDaysOrLess_thenStatementIncludesBaseCostAndPoints() {
+        Customer customer = new Customer("John Doe", List.of(new Rental(HORROR_MOVIE, 3)));
+        String statement = customer.statement();
+
+        String expected = """
+        Rental Record for John Doe
+        \tHorror Movie\t3.0
+        Amount owed is 3.0
+        You earned 1 frequent renter points""";
+
+        assertEquals(expected, statement);
+    }
+
+    @Test
+    void whenRentingHorrorMovieForMoreThanSevenDays_thenStatementIncludesExtraCostAndPoints() {
+        Customer customer = new Customer("John Doe", List.of(new Rental(HORROR_MOVIE, 8)));
+        String statement = customer.statement();
+
+        String expected = """
+        Rental Record for John Doe
+        \tHorror Movie\t5.0
+        Amount owed is 5.0
+        You earned 2 frequent renter points""";
+
+        assertEquals(expected, statement);
     }
 }
