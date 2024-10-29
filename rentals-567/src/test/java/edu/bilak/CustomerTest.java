@@ -1,10 +1,13 @@
 package edu.bilak;
 
-import edu.bilak.refactored.Customer;
-import edu.bilak.refactored.Rental;
+import edu.bilak.polymorphism.Customer;
+import edu.bilak.polymorphism.Rental;
+import edu.bilak.polymorphism.price.ChildrenPrice;
+import edu.bilak.polymorphism.price.NewReleasePrice;
+import edu.bilak.polymorphism.price.RegularPrice;
 import org.junit.jupiter.api.Test;
 
-import edu.bilak.refactored.Movie;
+import edu.bilak.polymorphism.Movie;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -17,9 +20,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @since 19/10/2024 — 19.44
  **/
 public class CustomerTest {
-    private static final Movie REGULAR_MOVIE = new Movie("Regular Movie", Movie.MovieType.REGULAR);
-    private static final Movie NEW_RELEASE_MOVIE = new Movie("New Release Movie", Movie.MovieType.NEW_RELEASE);
-    private static final Movie CHILDRENS_MOVIE = new Movie("Children Movie", Movie.MovieType.CHILDRENS);
+    private static final Movie REGULAR_MOVIE = new Movie("Regular Movie", new RegularPrice());
+    private static final Movie NEW_RELEASE_MOVIE = new Movie("New Release Movie", new NewReleasePrice());
+    private static final Movie CHILDRENS_MOVIE = new Movie("Children Movie", new ChildrenPrice());
 
     @Test
     public void whenNoRentals_thenReturnZeroAmountAndPoints() {
